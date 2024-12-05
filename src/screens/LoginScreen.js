@@ -1,13 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useFirebase } from "../hooks/useFirebase";
 import CustomInput from "../components/Login/CustomInput";
 import CustomButton from "../components/Login/CustomButton";
-import FirebaseContext from "../context/firebaseContext";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { auth } = useContext(FirebaseContext);
+  const { auth } = useFirebase();
 
   const handleLogin = async () => {
     try {

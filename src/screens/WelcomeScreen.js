@@ -1,10 +1,16 @@
+// En WelcomeScreen.js
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
+  const handleGetStarted = () => {
+    navigation.navigate("Login"); // Redirige a la pantalla de login
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome Screen</Text>
+      <Text style={styles.text}>Welcome to the App!</Text>
+      <Button title="Get Started" onPress={handleGetStarted} />
     </View>
   );
 };
@@ -14,10 +20,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    padding: 16,
   },
   text: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
+    marginBottom: 20,
   },
 });
 

@@ -1,5 +1,6 @@
-├── android/
-├── ios/
+my-app/
+├── .expo/
+├── node_modules/
 ├── src/
 │ ├── components/
 │ │ ├── Common/ # Componentes reutilizables (botones, inputs, etc.)
@@ -14,6 +15,8 @@
 │ │ ├── AppNavigator.js # Navegación principal
 │ │ ├── AuthNavigator.js # Navegación para login/register
 │ │ └── TabNavigator.js # Navegación con pestañas (Home, Social, etc.)
+| | |\_\_RootNavigator.js #
+
 │ ├── screens/ # Pantallas de la aplicación
 │ │ ├── LoginScreen.js # Pantalla de inicio de sesión
 │ │ ├── RegisterScreen.js # Pantalla de registro
@@ -33,18 +36,16 @@
 │ │ └── globalStyles.js # Estilos globales
 │ ├── services/ # Configuración de servicios (Firebase, API, etc.)
 │ │ ├── firebase.js # Configuración y inicialización de Firebase
-│ │ └── api.js # Llamadas a la API si es necesario
+│ │ └── firebaseConfig.js # Llamadas a la API si es necesario
 │ ├── context/ # Contextos de React
-│ │ ├── AuthContext.js # Contexto para autenticación
-│ │ └── UserContext.js # Contexto para datos del usuario
+│ │ ├── firebaseContext.js # Contexto para autenticación
+│ │ └── firebaseProvider.js # Contexto para datos del usuario
 │ ├── hooks/ # Hooks personalizados
 │ │ └── useAuth.js # Hook para manejar la autenticación
-│ └── utils/ # Utilidades y funciones auxiliares
-│ ├── validators.js # Validación de formularios
-│ ├── constants.js # Constantes globales
-│ └── helpers.js # Funciones helper
+│
+│
 ├── App.js # Punto de entrada de la app
 ├── package.json # Dependencias del proyecto
 ├── .gitignore # Archivos a ignorar por Git
 ├── README.md # Documentación del proyecto
-└── ...
+└── ... DONDE PRODRIA PONER EL doesUsernameExist

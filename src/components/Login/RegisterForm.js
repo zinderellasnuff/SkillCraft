@@ -1,17 +1,17 @@
 import React, { useState, useContext } from "react";
 import { View, TextInput, Button, StyleSheet, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import FirebaseContext from "../../context/firebaseContext";
 import { doesUsernameExist } from "../../services/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
+import useFirebase from "../../hooks/useFirebase";
 
 const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [lastName, setLastName] = useState("");
-  const { auth, firestore } = useContext(FirebaseContext);
+  const { auth, firestore } = useFirebase();
   const navigation = useNavigation();
 
   const handleSignUp = async () => {
@@ -81,6 +81,10 @@ const RegisterForm = () => {
         secureTextEntry
       />
       <Button title="Register" onPress={handleSignUp} />
+      <CustomButton
+        text="¿Ya tienes cuenta? Ingresa"
+        onPress={() => navigation.navigate("Login")}
+      />
     </View>
   );
 };
