@@ -22,7 +22,13 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./src/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "796ed28a-8355-4544-b591-b86b5afe47e3"
+      }
+    },
+    "owner": "jk_razor"
   }
 }
