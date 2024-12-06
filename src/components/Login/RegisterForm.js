@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { View, TextInput, Button, StyleSheet, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { doesUsernameExist } from "../../services/firebase";
+import { doesUsernameExist } from "../../services/userService";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import useFirebase from "../../hooks/useFirebase";
@@ -42,7 +42,7 @@ const RegisterForm = () => {
           dateCreated: Date.now(),
         });
 
-        navigation.replace("Welcome"); // Redirige al flujo principal
+        navigation.replace("Welcome");
       } else {
         Alert.alert("Error", "Ese usuario ya está tomado, prueba con otro.");
       }

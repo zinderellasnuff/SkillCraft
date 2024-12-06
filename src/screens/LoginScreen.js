@@ -16,19 +16,17 @@ const LoginScreen = ({ navigation }) => {
       navigation.replace("Welcome");
     } catch (error) {
       console.error("Error al iniciar sesión: ", error);
-      if (
-        error.code === "auth/invalid-login-credentials" ||
-        error.code === "auth/invalid-credential"
-      ) {
-        Alert.alert(
-          "Error",
-          "Las credenciales de inicio de sesión no son válidas"
-        );
+
+      if (error.code === "auth/wrong-password") {
+        Alert.alert("Error", "Contraseña incorrecta");
+      } else if (error.code === "auth/user-not-found") {
+        Alert.alert("Error", "No se encuentra una cuenta con ese correo");
       } else if (error.code === "auth/invalid-email") {
         Alert.alert("Error", "La dirección de correo electrónico es inválida");
       } else {
         Alert.alert("Error", error.message);
       }
+
       setEmail("");
       setPassword("");
     }

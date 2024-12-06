@@ -1,16 +1,19 @@
-// En WelcomeScreen.js
-import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
 
 const WelcomeScreen = ({ navigation }) => {
-  const handleGetStarted = () => {
-    navigation.navigate("Login"); // Redirige a la pantalla de login
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace("Auth"); // Cambia a AuthNavigator
+    }, 2000); // Simula un pequeño delay, puedes ajustar esto
+
+    return () => clearTimeout(timer);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to the App!</Text>
-      <Button title="Get Started" onPress={handleGetStarted} />
+      <Text style={styles.text}>¡Bienvenido a la aplicación!</Text>
+      <Button title="Empezar" onPress={() => navigation.replace("Auth")} />
     </View>
   );
 };
@@ -20,11 +23,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 16,
   },
   text: {
     fontSize: 24,
-    fontWeight: "bold",
     marginBottom: 20,
   },
 });

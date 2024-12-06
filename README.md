@@ -14,7 +14,7 @@ my-app/
 │ ├── navigation/ # Configuración de la navegación
 │ │ ├── AppNavigator.js # Navegación principal
 │ │ ├── AuthNavigator.js # Navegación para login/register
-│ │ └── TabNavigator.js # Navegación con pestañas (Home, Social, etc.)
+│ │ └── HomeTabs.js # Navegación con pestañas (Home, Social, etc.)
 | | |\_\_RootNavigator.js #
 
 │ ├── screens/ # Pantallas de la aplicación
@@ -42,6 +42,7 @@ my-app/
 │ │ └── firebaseProvider.js # Contexto para datos del usuario
 │ ├── hooks/ # Hooks personalizados
 │ │ └── useAuth.js # Hook para manejar la autenticación
+└── useFirebase.js # Hook para usar el firebase
 │
 │
 ├── App.js # Punto de entrada de la app
