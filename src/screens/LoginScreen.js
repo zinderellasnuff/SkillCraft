@@ -13,20 +13,26 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigation.replace("Welcome");
+      navigation.navigate("Home"); // Cambiado de replace a navigate
     } catch (error) {
       console.error("Error al iniciar sesión: ", error);
 
-      if (error.code === "auth/wrong-password") {
-        Alert.alert("Error", "Contraseña incorrecta");
-      } else if (error.code === "auth/user-not-found") {
-        Alert.alert("Error", "No se encuentra una cuenta con ese correo");
-      } else if (error.code === "auth/invalid-email") {
-        Alert.alert("Error", "La dirección de correo electrónico es inválida");
-      } else {
-        Alert.alert("Error", error.message);
+      let errorMessage = "Error desconocido";
+      switch (error.code) {
+        case "auth/wrong-password":
+          errorMessage = "Contraseña incorrecta";
+          break;
+        case "auth/user-not-found":
+          errorMessage = "No se encuentra una cuenta con ese correo";
+          break;
+        case "auth/invalid-email":
+          errorMessage = "La dirección de correo electrónico es inválida";
+          break;
+        default:
+          errorMessage = error.message;
       }
 
+      Alert.alert("Error", errorMessage);
       setEmail("");
       setPassword("");
     }
@@ -47,10 +53,15 @@ const LoginScreen = ({ navigation }) => {
         secureTextEntry
       />
       <CustomButton text="Ingresar" onPress={handleLogin} />
-      <CustomButton
-        text="¿No tienes cuenta? Regístrate"
-        onPress={() => navigation.navigate("Register")}
-      />
+      <Text style={styles.redirectText}>
+        ¿No tienes cuenta?{" "}
+        <Text
+          style={styles.link}
+          onPress={() => navigation.navigate("Register")}
+        >
+          Regístrate
+        </Text>
+      </Text>
     </View>
   );
 };
@@ -67,6 +78,17 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+  },
+  redirectText: {
+    textAlign: "center",
+    marginTop: 15,
+    fontSize: 16,
+    color: "#555",
+  },
+  link: {
+    color: "#007BFF",
+    fontWeight: "bold",
+    textDecorationLine: "underline",
   },
 });
 

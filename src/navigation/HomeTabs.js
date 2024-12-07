@@ -5,6 +5,7 @@ import SocialScreen from "../screens/SocialScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import ScannerScreen from "../screens/ScannerScreen";
 import StatisticsScreen from "../screens/StatisticsScreen";
+import QuizScreen from "../screens/QuizScreen";
 
 const Tab = createBottomTabNavigator();
 

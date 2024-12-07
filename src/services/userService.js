@@ -14,4 +14,3 @@ export const doesUsernameExist = async (firestore, username) => {
     return []; // Devuelve un array vacío si hay error
   }
 };
-a;

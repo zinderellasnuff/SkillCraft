@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import FirebaseContext from "../context/firebaseContext";
 
-const useFirebase = () => {
+export const useFirebase = () => {
   const context = useContext(FirebaseContext);
 
   if (!context) {
@@ -10,5 +10,3 @@ const useFirebase = () => {
 
   return context;
 };
-
-export default useFirebase;

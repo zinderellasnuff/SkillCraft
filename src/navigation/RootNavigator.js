@@ -3,10 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { onAuthStateChanged } from "firebase/auth";
 import { ActivityIndicator, View, StyleSheet } from "react-native";
-import useFirebase from "../hooks/useFirebase";
-import HomeTabs from "./HomeTabs";
-import AuthNavigator from "./AuthNavigator";
-import WelcomeScreen from "../screens/WelcomeScreen";
+import { useFirebase } from "../hooks/useFirebase";
+import HomeTabs from "./HomeTabs"; // Your main tabs screen
+import AuthNavigator from "./AuthNavigator"; // Auth flow if not logged in
+import WelcomeScreen from "../screens/WelcomeScreen"; // Welcome screen
+import QuizScreen from "../screens/QuizScreen"; // Import QuizScreen
 
 const Stack = createStackNavigator();
 
@@ -34,31 +35,27 @@ const RootNavigator = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: true }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         {!user ? (
-          // Si no hay usuario, se muestra el WelcomeScreen y luego el AuthNavigator
           <>
-            <Stack.Screen
-              name="Welcome"
-              component={WelcomeScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Auth"
-              component={AuthNavigator}
-              options={{ title: "Autenticación" }}
-            />
+            <Stack.Screen name="Welcome" component={WelcomeScreen} />
+            <Stack.Screen name="Auth" component={AuthNavigator} />
           </>
         ) : (
-          // Si hay usuario autenticado, se muestra el HomeTabs
-          <Stack.Screen
-            name="Home"
-            component={HomeTabs}
-            options={{ headerShown: false }}
-          />
+          // This will be shown if the user is logged in
+          <Stack.Screen name="HomeTabs" component={HomeTabsScreen} />
         )}
       </Stack.Navigator>
     </NavigationContainer>
+  );
+};
+
+const HomeTabsScreen = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomeTabs" component={HomeTabs} />
+      <Stack.Screen name="Quiz" component={QuizScreen} />
+    </Stack.Navigator>
   );
 };
 
