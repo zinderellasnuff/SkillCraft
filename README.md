@@ -1,52 +1,47 @@
-my-app/
-├── .expo/
-├── node_modules/
-├── src/
-│ ├── components/
-│ │ ├── Common/ # Componentes reutilizables (botones, inputs, etc.)
-│ │ ├── Login/ # Componentes específicos del Login
-│ │ ├── Home/ # Componentes específicos del Home
-│ │ ├── Social/ # Componentes específicos de la sección Social
-│ │ ├── Scanner/ # Componentes relacionados con la cámara
-│ │ ├── Statistics/ # Componentes específicos de Estadísticas
-│ │ ├── Profile/ # Componentes específicos del Perfil
-│ │ └── ...
-│ ├── navigation/ # Configuración de la navegación
-│ │ ├── AppNavigator.js # Navegación principal
-│ │ ├── AuthNavigator.js # Navegación para login/register
-│ │ └── HomeTabs.js # Navegación con pestañas (Home, Social, etc.)
-| | |\_\_RootNavigator.js #
+# 📚 Skillcraft - Aplicación de Estudio con Inteligencia Artificial
 
-│ ├── screens/ # Pantallas de la aplicación
-│ │ ├── LoginScreen.js # Pantalla de inicio de sesión
-│ │ ├── RegisterScreen.js # Pantalla de registro
-│ │ ├── WelcomeScreen.js # Pantalla de bienvenida
-│ │ ├── HomeScreen.js # Pantalla principal
-│ │ ├── SocialScreen.js # Pantalla Social
-│ │ ├── ScannerScreen.js # Pantalla del escáner/cámara
-│ │ ├── StatisticsScreen.js # Pantalla de estadísticas
-│ │ └── ProfileScreen.js # Pantalla de perfil
-│ ├── assets/ # Archivos estáticos (imágenes, íconos, etc.)
-│ │ ├── images/ # Imágenes de la aplicación
-│ │ ├── icons/ # Íconos
-│ │ └── fonts/ # Fuentes personalizadas
-│ ├── styles/ # Archivos de estilo
-│ │ ├── colors.js # Paleta de colores
-│ │ ├── fonts.js # Configuración de fuentes
-│ │ └── globalStyles.js # Estilos globales
-│ ├── services/ # Configuración de servicios (Firebase, API, etc.)
-│ │ ├── firebase.js # Configuración y inicialización de Firebase
-│ │ └── firebaseConfig.js # Llamadas a la API si es necesario
-│ ├── context/ # Contextos de React
-│ │ ├── firebaseContext.js # Contexto para autenticación
-│ │ └── firebaseProvider.js # Contexto para datos del usuario
-│ ├── hooks/ # Hooks personalizados
-│ │ └── useAuth.js # Hook para manejar la autenticación
-└── useFirebase.js # Hook para usar el firebase
-│
-│
-├── App.js # Punto de entrada de la app
-├── package.json # Dependencias del proyecto
-├── .gitignore # Archivos a ignorar por Git
-├── README.md # Documentación del proyecto
-└── ... DONDE PRODRIA PONER EL doesUsernameExist
+**Skillcraft** es una aplicación móvil diseñada para ayudar a estudiantes a maximizar su aprendizaje mediante el uso de **inteligencia artificial**. La app permite escanear documentos PDF, transformarlos en quizzes interactivos y ofrece un entorno personalizado de aprendizaje. Además, incluye herramientas sociales para interactuar con otros estudiantes y un sistema de estadísticas para monitorear el progreso.
+
+> Desarrollado con **React Native** y **Firebase**, esta aplicación combina funcionalidades avanzadas como autenticación de usuarios, navegación fluida y generación de contenido dinámico.
+
+---
+
+## 🚀 Características Principales
+
+### 🌟 Funcionalidades de la App:
+
+1. **Escaneo de PDFs y Generación de Quizzes**  
+   Convierte documentos físicos o digitales en cuestionarios interactivos para estudiar de manera más efectiva.
+
+2. **Estadísticas Personalizadas**  
+   Monitorea tu progreso con gráficos y datos detallados sobre tu rendimiento en los quizzes.
+
+3. **Gestión de Perfiles**  
+   Personaliza tu perfil con foto, nombre y preferencias.
+
+4. **Interacción Social**  
+   Conecta con otros estudiantes, comparte tus logros y colabora en actividades grupales.
+
+5. **Navegación Intuitiva**  
+   Incluye pantallas de inicio de sesión, registro, estadísticas, perfil, y más, con una navegación fluida y organizada.
+
+6. **Autenticación Segura**  
+   Gestión de usuarios mediante **Firebase Authentication**.
+
+---
+
+## 🛠 Tecnologías Utilizadas
+
+### **Frontend**
+
+- **React Native**: Framework para desarrollar aplicaciones móviles multiplataforma.
+- **React Navigation**: Manejo de navegación entre pantallas.
+- **Expo**: Herramienta para agilizar el desarrollo de aplicaciones.
+
+### **Backend**
+
+- **Firebase Authentication**: Autenticación de usuarios con correo y contraseña.
+- **Firebase Firestore**: Base de datos en tiempo real para almacenar datos de usuarios y cuestionarios.
+- **Firebase Storage**: Almacenamiento de imágenes y documentos escaneados.
+
+---
